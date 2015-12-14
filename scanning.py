@@ -1,8 +1,7 @@
-from image_tests import pil_verify, exif_test
+from .image_tests import pil_verify, exif_test
 import os
-import EXIF
-import sys
-from datetime import datetime
+#import .EXIF
+import exifread
 
 def get_file_extensions(path, length):
     ftypes = set([])
@@ -25,7 +24,7 @@ def image_scanner(path, types={'.jpg', '.jpeg', '.tif'}):
         Walk returns a lists of file in each directory
         '''
         for afile in filelist:
-            if os.path.splitext(afile)[1].lower() in types and not afile.startswith('.'):
+            if os.path.splitext(afile)[1].lower() in types and not afile.startswith('.') and '/Masters/' in rpath:
                 ifile = os.path.join(rpath, afile) #get full file path
                 total_files += 1 #keep a count of the files
                 pil_result = pil_verify(ifile)

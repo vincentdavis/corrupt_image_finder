@@ -19,7 +19,6 @@ def pil_verify(ifile):
 #         return False
     except IOError:
         print('PIL cannot identify image file: ' + ifile)
-        exiftest(ifile)
 #         #testlog.write('> PIL cannot identify image file \n')
 #         #testlog.write('>' + ifile + '\n')
         return None
